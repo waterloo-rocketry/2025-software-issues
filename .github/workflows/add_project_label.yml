@@ -7,7 +7,7 @@ on:
 jobs:
   create-project-label:
     runs-on: ubuntu-latest
-    if: contains(github.event.issue.labels.*.name, 'project')
+    if: contains(github.event.issue.labels.*.name, '[PROJECT]')
 
     steps:
       - name: Extract project name and create label
