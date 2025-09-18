@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Team Discussion
+    url: https://github.com/orgs/waterloo-rocketry/discussions
+    about: For general team discussions and questions
+  - name: 📋 Project Board
+    url: https://github.com/orgs/waterloo-rocketry/projects
+    about: View the project board to see current work and progress
