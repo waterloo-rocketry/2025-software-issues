@@ -1,0 +1,135 @@
+name: Task
+description: An individual task that takes a few hours of work
+title: "[TASK] "
+labels: ["task"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Task Template
+        Use this template for individual tasks that take a few hours of work.
+        
+  - type: input
+    id: task-name
+    attributes:
+      label: Task Title
+      description: A concise title for this task
+      placeholder: e.g., "Write unit tests for sensor validation function"
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: task-type
+    attributes:
+      label: Task Type
+      description: What type of task is this?
+      options:
+        - "Feature"
+        - "Bug"
+        - "Documentation"
+        - "Testing"
+        - "Refactoring"
+        - "Research"
+        - "Setup/Configuration"
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: related-story
+    attributes:
+      label: Related Story
+      description: Which story does this task belong to?
+      options:
+        - "Select a story..."
+        - "Sensor Data Validation"
+        - "Telemetry Display Interface"
+        - "Data Logging System"
+        - "Error Handling Framework"
+        - "Ground Station Communication"
+        - "Flight Computer Initialization"
+        - "Other (please specify in description)"
+    validations:
+      required: true
+      
+  - type: textarea
+    id: task-description
+    attributes:
+      label: Description
+      description: Detailed description of what needs to be done
+      placeholder: Describe exactly what work needs to be completed, including any specific requirements or constraints.
+    validations:
+      required: true
+      
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: How will we know when this task is complete?
+      placeholder: |
+        - [ ] Specific deliverable 1
+        - [ ] Specific deliverable 2
+        - [ ] Testing completed
+        - [ ] Code reviewed
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How urgent is this task?
+      options:
+        - "Low"
+        - "Medium"
+        - "High" 
+        - "Critical"
+    validations:
+      required: true
+      
+  - type: input
+    id: estimate
+    attributes:
+      label: Estimated Time
+      description: How long do you expect this task to take?
+      placeholder: e.g., "2 hours", "Half day", "1 day"
+    validations:
+      required: true
+      
+  - type: textarea
+    id: implementation-notes
+    attributes:
+      label: Implementation Notes
+      description: Any specific technical details, file locations, or implementation approaches
+      placeholder: |
+        Include:
+        - Specific files to modify
+        - Functions/classes to work with
+        - Testing approach
+        - Any technical constraints or considerations
+    validations:
+      required: false
+      
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: What other tasks or external factors does this depend on?
+      placeholder: List any blocking dependencies
+    validations:
+      required: false
+      
+  - type: checkboxes
+    id: additional-labels
+    attributes:
+      label: Additional Labels
+      description: Select any additional labels that apply to this task
+      options:
+        - label: "good first issue"
+          required: false
+        - label: "help wanted"
+          required: false
+        - label: "urgent"
+          required: false
+        - label: "blocked"
+          required: false
