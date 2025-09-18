@@ -9,7 +9,7 @@ body:
       value: |
         ## Task Template
         Use this template for individual tasks that take a few hours of work.
-        
+
   - type: input
     id: task-name
     attributes:
@@ -18,7 +18,7 @@ body:
       placeholder: e.g., "Write unit tests for sensor validation function"
     validations:
       required: true
-      
+
   - type: dropdown
     id: task-type
     attributes:
@@ -34,24 +34,16 @@ body:
         - "Setup/Configuration"
     validations:
       required: true
-      
-  - type: dropdown
+
+  - type: input
     id: related-story
     attributes:
       label: Related Story
       description: Which story does this task belong to?
-      options:
-        - "Select a story..."
-        - "Sensor Data Validation"
-        - "Telemetry Display Interface"
-        - "Data Logging System"
-        - "Error Handling Framework"
-        - "Ground Station Communication"
-        - "Flight Computer Initialization"
-        - "Other (please specify in description)"
+      placeholder: e.g., "waterloo-rocketry/2025-software-issues#10"
     validations:
-      required: true
-      
+      required: false
+
   - type: textarea
     id: task-description
     attributes:
@@ -60,7 +52,7 @@ body:
       placeholder: Describe the work to be completed
     validations:
       required: true
-      
+
   - type: textarea
     id: acceptance-criteria
     attributes:
@@ -71,8 +63,8 @@ body:
         - [ ] Specific deliverable 2
         - [ ] Testing completed
     validations:
-      required: true
-      
+      required: false
+
   - type: dropdown
     id: priority
     attributes:
@@ -81,11 +73,11 @@ body:
       options:
         - "Low"
         - "Medium"
-        - "High" 
+        - "High"
         - "Critical"
     validations:
       required: true
-      
+
   - type: textarea
     id: technical-notes
     attributes:

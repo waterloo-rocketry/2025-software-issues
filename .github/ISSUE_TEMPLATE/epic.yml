@@ -9,7 +9,7 @@ body:
       value: |
         ## Epic Template
         Use this template for goals or features that take 1-2 months to complete and contain multiple stories.
-        
+
   - type: input
     id: epic-name
     attributes:
@@ -18,23 +18,16 @@ body:
       placeholder: e.g., "Implement Real-time Telemetry System"
     validations:
       required: true
-      
-  - type: dropdown
+
+  - type: input
     id: related-project
     attributes:
       label: Related Project
       description: Which project does this epic belong to?
-      options:
-        - "Select a project..."
-        - "Ground Station Software"
-        - "Flight Computer Firmware" 
-        - "Data Analysis Pipeline"
-        - "Recovery System Control"
-        - "Propulsion Control System"
-        - "Other (please specify in description)"
+      placeholder: e.g., "waterloo-rocketry/2025-software-issues"
     validations:
-      required: true
-      
+      required: false
+
   - type: textarea
     id: epic-description
     attributes:
@@ -43,7 +36,7 @@ body:
       placeholder: Describe the goal, why it's important, and what the end result should look like
     validations:
       required: true
-      
+
   - type: textarea
     id: acceptance-criteria
     attributes:
@@ -55,20 +48,7 @@ body:
         - [ ] Criterion 3
     validations:
       required: true
-      
-  - type: textarea
-    id: user-stories
-    attributes:
-      label: User Stories
-      description: What stories (features) need to be implemented as part of this epic?
-      placeholder: |
-        List the individual stories that make up this epic:
-        - Story 1: ...
-        - Story 2: ...
-        - Story 3: ...
-    validations:
-      required: true
-      
+
   - type: input
     id: timeline
     attributes:
@@ -76,8 +56,8 @@ body:
       description: How long do you expect this epic to take?
       placeholder: e.g., "6-8 weeks" or "2 months"
     validations:
-      required: true
-      
+      required: false
+
   - type: textarea
     id: dependencies
     attributes:
@@ -86,7 +66,7 @@ body:
       placeholder: List any blocking dependencies
     validations:
       required: false
-      
+
   - type: textarea
     id: technical-notes
     attributes:

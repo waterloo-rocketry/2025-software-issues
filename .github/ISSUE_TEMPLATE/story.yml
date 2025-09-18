@@ -9,7 +9,7 @@ body:
       value: |
         ## Story Template
         Use this template for individual features that take 1-2 weeks to complete.
-        
+
   - type: input
     id: story-name
     attributes:
@@ -18,24 +18,16 @@ body:
       placeholder: e.g., "Add sensor data validation to telemetry system"
     validations:
       required: true
-      
-  - type: dropdown
+
+  - type: input
     id: related-epic
     attributes:
       label: Related Epic
       description: Which epic does this story belong to?
-      options:
-        - "Select an epic..."
-        - "Real-time Telemetry System"
-        - "Data Logging Framework"
-        - "Sensor Integration"
-        - "Ground Station Interface"
-        - "Flight Computer Core"
-        - "Recovery System Logic"
-        - "Other (please specify in description)"
+      placeholder: e.g., "waterloo-rocketry/2025-software-issues#10"
     validations:
       required: true
-      
+
   - type: textarea
     id: user-story
     attributes:
@@ -43,11 +35,11 @@ body:
       description: Describe this story from a user's perspective
       placeholder: |
         As a [type of user], I want [some goal] so that [some reason].
-        
+
         Example: As a flight engineer, I want to see real-time sensor data on the ground station so that I can monitor the rocket's status during flight.
     validations:
       required: true
-      
+
   - type: textarea
     id: acceptance-criteria
     attributes:
@@ -61,7 +53,7 @@ body:
         - [ ] Documentation requirements
     validations:
       required: true
-      
+
   - type: textarea
     id: tasks
     attributes:
@@ -76,7 +68,7 @@ body:
         - Task 5: Update documentation
     validations:
       required: true
-      
+
   - type: input
     id: estimate
     attributes:
@@ -85,7 +77,7 @@ body:
       placeholder: e.g., "1 week", "5-8 days", "2 weeks"
     validations:
       required: true
-      
+
   - type: dropdown
     id: priority
     attributes:
@@ -93,12 +85,12 @@ body:
       description: How important is this story?
       options:
         - "Low"
-        - "Medium" 
+        - "Medium"
         - "High"
         - "Critical"
     validations:
       required: true
-      
+
   - type: textarea
     id: dependencies
     attributes:
@@ -107,7 +99,7 @@ body:
       placeholder: List any blocking dependencies
     validations:
       required: false
-      
+
   - type: textarea
     id: technical-notes
     attributes:

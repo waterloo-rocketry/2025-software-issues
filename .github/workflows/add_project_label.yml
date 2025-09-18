@@ -1,0 +1,55 @@
+name: Auto-create Project Labels
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  create-project-label:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'project')
+
+    steps:
+      - name: Extract project name and create label
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue = context.payload.issue;
+            const title = issue.title;
+
+            // Extract project name from title (assumes format "[PROJECT] Project Name")
+            const projectMatch = title.match(/^\[PROJECT\]\s*(.+)$/i);
+            if (!projectMatch) {
+              console.log('No project name found in title format');
+              return;
+            }
+
+            const projectName = projectMatch[1].trim();
+            const labelName = `project-${projectName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
+            const labelColor = '0366d6'; // Blue color for project labels
+            const labelDescription = `Issues related to the ${projectName} project`;
+
+            try {
+              // Check if label already exists
+              await github.rest.issues.getLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: labelName
+              });
+              console.log(`Label ${labelName} already exists`);
+            } catch (error) {
+              if (error.status === 404) {
+                // Label doesn't exist, create it
+                await github.rest.issues.createLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: labelName,
+                  color: labelColor,
+                  description: labelDescription
+                });
+                console.log(`Created new label: ${labelName}`);
+              } else {
+                throw error;
+              }
+            }
