@@ -1,5 +1,6 @@
 # Software Subsystem GitHub Issues 2025
 
+**THIS REPOSITORY IS NOT FOR CODE. DO NOT OPEN PRS HERE**
 This repository logs all issues and technical decisions for the software subsystem for the 2025-2026 design cycle.
 
   
