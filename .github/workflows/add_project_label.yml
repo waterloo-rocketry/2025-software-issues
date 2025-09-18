@@ -15,20 +15,12 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+
             const issue = context.payload.issue;
-            const title = issue.title;
-
-            // Extract project name from title (assumes format "[PROJECT] Project Name")
-            const projectMatch = title.match(/^\[PROJECT\]\s*(.+)$/i);
-            if (!projectMatch) {
-              console.log('No project name found in title format');
-              return;
-            }
-
-            const projectName = projectMatch[1].trim();
-            const labelName = `project-${projectName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
-            const labelColor = '0366d6'; // Blue color for project labels
-            const labelDescription = `Issues related to the ${projectName} project`;
+            const issueId = issue.number;
+            const labelName = `issue-${issueId}`;
+            const labelColor = '0366d6'; // Blue color for issue labels
+            const labelDescription = `Label for issue #${issueId}`;
 
             try {
               // Check if label already exists
