@@ -18,7 +18,7 @@ jobs:
 
             const issue = context.payload.issue;
             const issueId = issue.number;
-            const labelName = `issue-${issueId}`;
+            const labelName = `project-${issueId}`;
             const labelColor = '0366d6'; // Blue color for issue labels
             const labelDescription = `Label for issue #${issueId}`;
 
